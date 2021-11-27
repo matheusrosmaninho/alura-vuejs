@@ -1,7 +1,11 @@
 <template>
   <div class="painel">
-    <h2 class="painel-titulo">{{ foto.titulo }}</h2>
-    <slot class="painel-conteudo"> </slot>
+    <h2 class="painel-titulo" @dblclick="visivel = !visivel">
+      {{ foto.titulo }}
+    </h2>
+    <div class="painel-conteudo" v-show="visivel">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -16,6 +20,11 @@ export default {
         titulo: "Imagem não encontrada"
       }
     }
+  },
+  data() {
+    return {
+      visivel: true
+    };
   }
 };
 </script>
