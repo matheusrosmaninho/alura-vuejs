@@ -69,9 +69,13 @@ export default {
 .lista-fotos .lista-fotos-item {
   display: inline-block;
 }
+.imagem-responsiva {
+  width: 100%;
+}
 .filtro {
   display: block;
   width: 100%;
   padding: 1rem;
+  border-radius: 0.6rem;
 }
 </style>
