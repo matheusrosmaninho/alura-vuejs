@@ -1,8 +1,19 @@
 <template>
   <div class="corpo">
     <h1 class="centralizado">{{ titulo }}</h1>
+
+    <input
+      type="search"
+      class="filtro"
+      placeholder="filtre por titulo"
+      @input="filtro = $event.target.value"
+    />
     <ul class="lista-fotos">
-      <li class="lista-fotos-item" v-for="(foto, index) in fotos" :key="index">
+      <li
+        class="lista-fotos-item"
+        v-for="(foto, index) in fotosComFiltro"
+        :key="index"
+      >
         <painel :foto="foto">
           <img class="imagem-responsiva" :src="foto.url" :alt="foto.titulo" />
         </painel>
@@ -18,8 +29,18 @@ export default {
   data() {
     return {
       titulo: "Alurapic",
-      fotos: []
+      fotos: [],
+      filtro: ""
     };
+  },
+  computed: {
+    fotosComFiltro() {
+      if (this.filtro) {
+        let exp = new RegExp(this.filtro.trim(), "i");
+        return this.fotos.filter(foto => exp.test(foto.titulo));
+      }
+      return this.fotos;
+    }
   },
   created() {
     let promise = this.$http.get("http://localhost:3000/v1/fotos");
@@ -47,5 +68,10 @@ export default {
 }
 .lista-fotos .lista-fotos-item {
   display: inline-block;
+}
+.filtro {
+  display: block;
+  width: 100%;
+  padding: 1rem;
 }
 </style>
