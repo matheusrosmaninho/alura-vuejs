@@ -3,10 +3,12 @@ import Home from "./views/Home.vue";
 
 export const routes = [
   {
-    path: "",
+    title: "Home",
+    path: "/",
     component: Home
   },
   {
+    title: "Cadastro",
     path: "/cadastro",
     component: Cadastro
   }
