@@ -15,7 +15,7 @@
         :key="index"
       >
         <painel :foto="foto">
-          <img class="imagem-responsiva" :src="foto.url" :alt="foto.titulo" />
+          <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
         </painel>
       </li>
     </ul>
@@ -23,9 +23,13 @@
 </template>
 
 <script>
+import ImagemResponsiva from "./components/shared/imagem-responsiva/ImagemResponsiva.vue";
 import Painel from "./components/shared/painel/Painel.vue";
 export default {
-  components: { Painel },
+  components: {
+    Painel,
+    ImagemResponsiva
+  },
   data() {
     return {
       titulo: "Alurapic",
@@ -68,9 +72,6 @@ export default {
 }
 .lista-fotos .lista-fotos-item {
   display: inline-block;
-}
-.imagem-responsiva {
-  width: 100%;
 }
 .filtro {
   display: block;
