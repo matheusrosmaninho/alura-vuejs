@@ -19,7 +19,8 @@
           <meu-botao
             tipo="button"
             rotulo="Remover"
-            @click.native="remove(foto)"
+            @botaoAtivado="remove(foto)"
+            estilo="perigo"
           />
         </painel>
       </li>
@@ -66,9 +67,7 @@ export default {
   },
   methods: {
     remove(foto) {
-      if (confirm("Confirma a operação?")) {
-        alert(`Remover a foto "${foto.titulo}"`);
-      }
+      alert(`Remove a foto "${foto.titulo}"`);
     }
   }
 };
