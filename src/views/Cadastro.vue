@@ -41,6 +41,7 @@
 <script>
 import ImagemResponsiva from "../components/shared/imagem-responsiva/ImagemResponsiva.vue";
 import Botao from "../components/shared/botao/Botao.vue";
+import Foto from "../domain/foto/Foto";
 
 export default {
   name: "Cadastro",
@@ -50,21 +51,13 @@ export default {
   },
   data() {
     return {
-      foto: {
-        titulo: "",
-        url: "",
-        descricao: ""
-      }
+      foto: new Foto()
     };
   },
   methods: {
     grava() {
       console.log("Enviar dados para api");
-      this.foto = {
-        titulo: "",
-        url: "",
-        descricao: ""
-      };
+      this.foto = new Foto();
     }
   }
 };
