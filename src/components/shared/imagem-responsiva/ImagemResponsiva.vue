@@ -7,8 +7,7 @@ export default {
   name: "ImagemResponsiva",
   props: {
     url: {
-      type: String,
-      default: "https://via.placeholder.com/150"
+      type: String
     },
     titulo: {
       type: String,
