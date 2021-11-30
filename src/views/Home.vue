@@ -18,7 +18,7 @@
           <imagem-responsiva
             :url="foto.url"
             :titulo="foto.titulo"
-            v-meu-transform
+            v-meu-transform="{ increase: 15, animate: true }"
           />
           <meu-botao
             tipo="button"

@@ -5,7 +5,15 @@ Vue.directive("meu-transform", {
     let current = 0;
 
     el.addEventListener("dblclick", function() {
-      current += 90;
+      let increase = 90;
+      let animate = false;
+
+      if (bind.value) {
+        increase = bind.value.increase;
+        animate = bind.value.animate;
+      }
+      current += increase;
+      if (animate) el.style.transition = "transform .5s";
       el.style.transform = `rotate(${current}deg)`;
     });
   }
